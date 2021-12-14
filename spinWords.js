@@ -23,4 +23,22 @@ function spinWords(string) {
   return returnedStringArray.join(" ");
 }
 
-console.log(spinWords("Hey fellow warriors"))
+function spinWordsUsingReverse(string) {
+
+  let arrayOfWords = string.split(" ");
+  let arrayToReturn = [];
+
+  for (const word of arrayOfWords) {
+    if (word.length >= 5) {
+      let tempWordArray = word.split("");
+      arrayToReturn.push(tempWordArray.reverse().join(""));
+    } else {
+      arrayToReturn.push(word);
+    }
+  }
+
+  return arrayToReturn.join(" ");
+}
+
+console.log(spinWords("Hey fellow warriors"));
+console.log(spinWordsUsingReverse("Hey fellow warriors"));
