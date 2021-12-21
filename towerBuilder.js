@@ -37,19 +37,18 @@ function towerBuilder(nFloors) {
   let arrayToReturn = [];
   let numStars = 1;
   let maxStars = nFloors * 2 - 1;
-  let space = "";
 
   for (let i = 0; i < nFloors; i++) {
 
     let tempString = "";
     let spaceMax = (maxStars - numStars) / 2;
 
-    tempString = tempString + " ".repeat(spaceMax);
-    tempString = tempString + "*".repeat(numStars);
-    tempString = tempString + " ".repeat(spaceMax);
+    tempString += " ".repeat(spaceMax);
+    tempString += "*".repeat(numStars);
+    tempString += " ".repeat(spaceMax);
 
     arrayToReturn.push(tempString)
-    numStars = numStars + 2;
+    numStars += 2;
   }
   return arrayToReturn;
 }
