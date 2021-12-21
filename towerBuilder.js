@@ -44,17 +44,9 @@ function towerBuilder(nFloors) {
     let tempString = "";
     let spaceMax = (maxStars - numStars) / 2;
 
-    for (let x = 0; x < spaceMax; x++) {
-      tempString = tempString + " ";
-    }
-
-    for (let y = 0; y < numStars; y++) {
-      tempString = tempString + "*";
-    }
-
-    for (let z = 0; z < spaceMax; z++) {
-      tempString = tempString + " ";
-    }
+    tempString = tempString + " ".repeat(spaceMax);
+    tempString = tempString + "*".repeat(numStars);
+    tempString = tempString + " ".repeat(spaceMax);
 
     arrayToReturn.push(tempString)
     numStars = numStars + 2;
