@@ -37,5 +37,29 @@
 // if you want to translate, please ask before translating.
 
 function dirReduc(arr) {
-  // ...
+
+  let finished = false;
+  let arrayToReturn = arr;
+
+  while (finished === false) {
+
+    let tempArray = [];
+
+    for (let i = 0; i < arrayToReturn.length; i++) {
+      if (arrayToReturn[i] === "NORTH" && arrayToReturn[i + 1] === "SOUTH" || arrayToReturn[i] === "SOUTH" && arrayToReturn[i + 1] === "NORTH" || arrayToReturn[i] === "EAST" && arrayToReturn[i + 1] === "WEST" || arrayToReturn[i] === "WEST" && arrayToReturn[i + 1] === "EAST") {
+        i = i + 2;
+      } else {
+        tempArray.push(arrayToReturn[i]);
+      }
+    }
+
+    if (arrayToReturn.length === tempArray.length) {
+      return arrayToReturn;
+    } else {
+      arrayToReturn = tempArray;
+    }
+
+  }
 }
+
+console.log(dirReduc(["NORTH", "WEST", "SOUTH", "EAST"]));
