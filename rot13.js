@@ -40,12 +40,9 @@ function rot13(message) {
     if (!alphabet.includes(letter.toLowerCase())) {
       stringToReturn += letter;
     }
-
-
   }
 
   return stringToReturn;
-
 }
 
 console.log(rot13("GRF&G"))
