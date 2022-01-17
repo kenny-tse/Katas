@@ -7,13 +7,12 @@ function matchingStrings(strings, queries) {
   for (const query of queries) {
 
     if (!storage[query]) {
+
+      storage[query] = 0;
+
       for (const string of strings) {
         if (query === string) {
-          if (!storage[string]) {
-            storage[string] = 1;
-          } else {
-            storage[string] += 1;
-          }
+          storage[string] += 1;
         }
       }
     }
@@ -22,23 +21,14 @@ function matchingStrings(strings, queries) {
   let arrayToReturn = [];
 
   for (const query of queries) {
-    if (storage[query]) {
-      arrayToReturn.push(storage[query])
-    }
-
-    if (!storage[query]) {
-      arrayToReturn.push(0)
-
-    }
+    arrayToReturn.push(storage[query])
   }
-
+  
   return arrayToReturn;
-
 }
 
 console.log(matchingStrings(["4", "aba", "baba", "aba", "xzxb", "3"], ["aba", "xzxb", "ab"]));
 
 console.log(matchingStrings(["3", "def", "de", "fgh", "3"], ["de", "lmn", "fgh"]));
-
 
 console.log(matchingStrings(["ab", "ab", "abc"], ["ab", "ab"]));
