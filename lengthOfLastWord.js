@@ -13,3 +13,5 @@ var lengthOfLastWord = function (s) {
   return arrayOfWords[arrayOfWords.length - 1].length;
 
 };
+
+console.log(lengthOfLastWord("here is an example string")); // 6
