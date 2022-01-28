@@ -17,15 +17,11 @@ var plusOne = function (digits) {
   let digitNumber = digits.join("");
 
   if (digitNumber > Number.MAX_SAFE_INTEGER) {
-    let numberToAdd = BigInt(digitNumber);
-    numberToAdd++;
-    return String(numberToAdd).split("");
+    return String(BigInt(digitNumber) + BigInt(1)).split("");
   }
 
   if (digitNumber <= Number.MAX_SAFE_INTEGER) {
-    let numberToAdd = Number(digitNumber);
-    numberToAdd++;
-    return String(numberToAdd).split("");
+    return String(Number(digitNumber) + 1).split("");
   }
 };
 
