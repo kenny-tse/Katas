@@ -46,3 +46,12 @@ var searchInsert = function (nums, target) {
 
   return arrayToEval.length;
 };
+
+console.log("Testing [1, 3, 5], 6: Should equal 3")
+console.log(searchInsert([1, 3, 5], 6));
+
+console.log("Testing [1, 3, 5], 4: Should equal 2")
+console.log(searchInsert([1, 3, 5], 4));
+
+console.log("Testing [1, 3, 5], 4: Should equal 2")
+console.log(searchInsert([1, 3, 5], 5));
