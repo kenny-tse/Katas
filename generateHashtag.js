@@ -12,35 +12,61 @@
 // "    Hello     World   "                  =>  "#HelloWorld"
 // ""                                        =>  false
 
-function generateHashtag(str) {
 
-  if (str.trim() === "") {
+const generateHashtag = (str) => {
+
+  let trimmedString = str.trim();
+
+  if (trimmedString.length === 0) {
     return false;
   }
 
-  let sentenceAray = str.split(" ");
+  let stringArray = trimmedString.split(" ");
 
-  let noSpaceArray = sentenceAray.filter((element) => {
-    return element !== " ";
-  });
+  if (stringArray.length > 140) {
+    return false;
+  }
 
-  let capitalizedArray = noSpaceArray.map((element) => {
+  let stringToReturn = "#";
 
-    let firstLetter = "";
-
-    if (element[0]) {
-      firstLetter = element[0].toUpperCase();
+  for (const word of stringArray) {
+    if (word !== "") {
+      stringToReturn += word[0].toUpperCase() + word.slice(1);
     }
-
-    return firstLetter + element.slice(1, element.length)
-  });
-
-  if (capitalizedArray.join("").length >= 140) {
-    return false;
   }
 
-  return "#" + capitalizedArray.join("");
+  return stringToReturn;
 }
+
+// function generateHashtag(str) {
+
+//   if (str.trim() === "") {
+//     return false;
+//   }
+
+//   let sentenceAray = str.split(" ");
+
+//   let noSpaceArray = sentenceAray.filter((element) => {
+//     return element !== " ";
+//   });
+
+//   let capitalizedArray = noSpaceArray.map((element) => {
+
+//     let firstLetter = "";
+
+//     if (element[0]) {
+//       firstLetter = element[0].toUpperCase();
+//     }
+
+//     return firstLetter + element.slice(1, element.length)
+//   });
+
+//   if (capitalizedArray.join("").length >= 140) {
+//     return false;
+//   }
+
+//   return "#" + capitalizedArray.join("");
+// }
 
 console.log(generateHashtag("Hello there thanks for   trying my Kata"));
 console.log(generateHashtag("    Hello     World   "));
