@@ -15,12 +15,19 @@
 
 function sumIntervals(intervals) {
 
+  let objectToStoreNumbers = {};
+
   for (const interval of intervals) {
 
-    for (let i = interval[0]; i < interval[interval.length - 1]; i++){
+    for (let i = interval[0]; i < interval[interval.length - 1]; i++) {
 
-      
+      if (!objectToStoreNumbers[i]) {
+        objectToStoreNumbers[i] = true;
+      }
     }
-
   }
+
+  return Object.keys(objectToStoreNumbers).length;
 }
+
+console.log(sumIntervals([[1, 4], [7, 10], [3, 5]]));
