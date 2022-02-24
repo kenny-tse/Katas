@@ -14,9 +14,24 @@
 // Output:
 // 'Vatsan took his dog for a spin'
 
-function sentence(List) {
+function sentence(list) {
 
+  let numbers = {};
 
+  for (const element of list) {
+    let toPut = Object.entries(element)[0];
+    numbers[toPut[0]] = toPut[1];
+  }
+
+  let sortedKeys = Object.keys(numbers).sort((element1, element2) => { return element1 - element2 });
+
+  let stringToReturn = [];
+
+  for (const key of sortedKeys) {
+    stringToReturn.push(numbers[key])
+  }
+
+  return stringToReturn.join(" ");
 
 }
 
