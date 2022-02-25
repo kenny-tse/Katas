@@ -21,48 +21,87 @@
 // 1 <= m + n <= 2000
 // -106 <= nums1[i], nums2[i] <= 106
 
-var findMedianSortedArrays = function (nums1, nums2) {
+const findMedianSortedArrays = (nums1, nums2) => {
 
-  let arrayToMedian = [];
-  let index1 = 0;
-  let index2 = 0;
+  let newArray = [];
 
-  while (index1 < nums1.length || index2 < nums2.length) {
+  let indexNum1 = 0;
+  let indexNum2 = 0;
 
-    console.log("index1 is " + index1 + " and index2 is " + index2)
+  while (indexNum1 < nums1.length || indexNum2 < nums2.length) {
 
-    if (!nums1[index1]) {
-      arrayToMedian.push(nums2[index2]);
-      index2++;
-    } else if (!nums2[index2]) {
-      arrayToMedian.push(nums1[index1]);
-      index1++;
-    } else if (nums1[index1] < nums2[index2]) {
-      arrayToMedian.push(nums1[index1]);
-      index1++;
-    } else if (nums2[index2] < nums1[index1]) {
-      arrayToMedian.push(nums2[index2]);
-      index2++;
-    } else if (nums1[index1] === nums2[index2]) {
-      arrayToMedian.push(nums1[index1]);
-      arrayToMedian.push(nums2[index2]);
-      index1++;
-      index2++;
+    if (!nums1[indexNum1] && !nums2[indexNum2]) {
+      return newArray;
+    } else if (!nums1[indexNum1] && nums2[indexNum2]) {
+      newArray.push(nums2[indexNum2]);
+      indexNum2++;
+    } else if (!nums2[indexNum2] && nums1[indexNum1]) {
+      newArray.push(nums1[indexNum1]);
+      indexNum1++;
+    } else if (nums1[indexNum1] < nums2[indexNum2]) {
+      newArray.push(nums1[indexNum1]);
+      indexNum1++;
+    } else if (nums1[indexNum1] > nums2[indexNum2]) {
+      newArray.push(nums2[indexNum2]);
+      indexNum2++;
+    } else if (nums1[indexNum1] === nums2[indexNum2]) {
+      newArray.push(nums1[indexNum1]);
+      newArray.push(nums2[indexNum2]);
+      indexNum1++;
+      indexNum2++;
     }
+
+    console.log(newArray)
   }
 
-  console.log(arrayToMedian)
+  return newArray;
 
-  if (arrayToMedian.length % 2 === 0) {
-    let firstNumber = arrayToMedian[(arrayToMedian.length / 2) - 1];
-    let secondNumber = arrayToMedian[(arrayToMedian.length / 2)];
+}
 
-    return ((firstNumber + secondNumber) / 2);
-  }
 
-  return Math.floor((arrayToMedian.length / 2) + 1);
 
-};
+// var findMedianSortedArrays = function (nums1, nums2) {
+
+//   let arrayToMedian = [];
+//   let index1 = 0;
+//   let index2 = 0;
+
+//   while (index1 < nums1.length || index2 < nums2.length) {
+
+//     console.log("index1 is " + index1 + " and index2 is " + index2)
+
+//     if (!nums1[index1]) {
+//       arrayToMedian.push(nums2[index2]);
+//       index2++;
+//     } else if (!nums2[index2]) {
+//       arrayToMedian.push(nums1[index1]);
+//       index1++;
+//     } else if (nums1[index1] < nums2[index2]) {
+//       arrayToMedian.push(nums1[index1]);
+//       index1++;
+//     } else if (nums2[index2] < nums1[index1]) {
+//       arrayToMedian.push(nums2[index2]);
+//       index2++;
+//     } else if (nums1[index1] === nums2[index2]) {
+//       arrayToMedian.push(nums1[index1]);
+//       arrayToMedian.push(nums2[index2]);
+//       index1++;
+//       index2++;
+//     }
+//   }
+
+//   console.log(arrayToMedian)
+
+//   if (arrayToMedian.length % 2 === 0) {
+//     let firstNumber = arrayToMedian[(arrayToMedian.length / 2) - 1];
+//     let secondNumber = arrayToMedian[(arrayToMedian.length / 2)];
+
+//     return ((firstNumber + secondNumber) / 2);
+//   }
+
+//   return Math.floor((arrayToMedian.length / 2) + 1);
+
+// };
 
 console.log(findMedianSortedArrays([1, 2, 3], [2, 2, 4]));
 

@@ -17,6 +17,7 @@
 // 0 <= strs[i].length <= 200
 // strs[i] consists of only lower-case English letters.
 
+
 /**
  * @param {string[]} strs
  * @return {string}
@@ -32,13 +33,16 @@ var longestCommonPrefix = function (strs) {
     for (const word of strs) {
 
       if (word.substring(0, stringPrefix.length) !== stringPrefix) {
-        let tempArray = stringPrefix.split("");
-        tempArray.pop();
-        return tempArray.join("");
+        // let tempArray = stringPrefix.split("");
+        // tempArray.pop();
+        // return tempArray.join("");
+
+        return stringPrefix.slice(0, stringPrefix.length - 1)
+
       }
     }
   }
   return stringPrefix;
 };
 
-console.log(longestCommonPrefix(["flower", "flower", "flower"]));
+console.log(longestCommonPrefix(["flower", "flow", "flight"]));

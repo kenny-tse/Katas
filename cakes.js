@@ -9,26 +9,47 @@
 // // must return 0
 // cakes({apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100}, {sugar: 500, flour: 2000, milk: 2000}); 
 
-function cakes(recipe, available) {
 
-  let numberToReturn = Number.MAX_SAFE_INTEGER;
-  let arrayOfAvailableKeys = Object.keys(available);
-  let arrayOfRecipeKeys = Object.keys(recipe);
+let cakes = (recipe, available) => {
 
-  for (const key of arrayOfRecipeKeys) {
-    if (!arrayOfAvailableKeys.includes(key)) {
+  let ingredientKeys = Object.keys(recipe);
+  let highestNumber = Number.MAX_SAFE_INTEGER;
+
+  for (const key of ingredientKeys) {
+
+    if (!available[key]) {
       return 0;
     }
-  }
 
-  for (const key of arrayOfAvailableKeys) {
-    if (available[key] / recipe[key] < numberToReturn) {
-      numberToReturn = Math.trunc(available[key] / recipe[key]);
+    let amountAfterDivided = Math.trunc(available[key] / recipe[key])
+    if (amountAfterDivided < highestNumber) {
+      highestNumber = amountAfterDivided;
     }
   }
-
-  return numberToReturn;
+  return highestNumber;
 }
+
+
+// function cakes(recipe, available) {
+
+//   let numberToReturn = Number.MAX_SAFE_INTEGER;
+//   let arrayOfAvailableKeys = Object.keys(available);
+//   let arrayOfRecipeKeys = Object.keys(recipe);
+
+//   for (const key of arrayOfRecipeKeys) {
+//     if (!arrayOfAvailableKeys.includes(key)) {
+//       return 0;
+//     }
+//   }
+
+//   for (const key of arrayOfAvailableKeys) {
+//     if (available[key] / recipe[key] < numberToReturn) {
+//       numberToReturn = Math.trunc(available[key] / recipe[key]);
+//     }
+//   }
+
+//   return numberToReturn;
+// }
 
 console.log(cakes({ flour: 500, sugar: 200, eggs: 1 }, { flour: 1200, sugar: 1200, eggs: 5, milk: 200 }));
 

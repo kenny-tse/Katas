@@ -15,47 +15,93 @@
 
 // anagrams('laser', ['lazing', 'lazy',  'lacer']) => []
 
-function anagrams(word, words) {
 
+function anagrams(word, words) {
 
   let objectOfLetters = {};
 
   for (const letter of word) {
     if (!objectOfLetters[letter]) {
       objectOfLetters[letter] = 1;
-    } else if (objectOfLetters[letter]) {
+    } else {
       objectOfLetters[letter] += 1;
     }
   }
 
   let arrayToReturn = [];
 
-  for (const singleWord of words) {
+  for (const word of words) {
 
-    let objectOfLettersCompare = {};
+    let objectOfLettersToCompare = {};
 
-    for (const letter of singleWord) {
-      if (!objectOfLettersCompare[letter]) {
-        objectOfLettersCompare[letter] = 1;
-      } else if (objectOfLettersCompare[letter]) {
-        objectOfLettersCompare[letter] += 1;
+    for (const letter of word) {
+      if (!objectOfLettersToCompare[letter]) {
+        objectOfLettersToCompare[letter] = 1;
+      } else {
+        objectOfLettersToCompare[letter] += 1;
       }
     }
 
+    let keys = Object.keys(objectOfLettersToCompare);
     let add = true;
 
-    for (const key of Object.keys(objectOfLettersCompare)) {
-      if (objectOfLettersCompare[key] !== objectOfLetters[key]) {
+    for (const key of keys) {
+      if (objectOfLettersToCompare[key] !== objectOfLetters[key]) {
         add = false;
       }
     }
 
     if (add === true) {
-      arrayToReturn.push(singleWord);
+      arrayToReturn.push(word);
     }
+
   }
 
   return arrayToReturn;
 }
+
+
+// function anagrams(word, words) {
+
+
+//   let objectOfLetters = {};
+
+//   for (const letter of word) {
+//     if (!objectOfLetters[letter]) {
+//       objectOfLetters[letter] = 1;
+//     } else if (objectOfLetters[letter]) {
+//       objectOfLetters[letter] += 1;
+//     }
+//   }
+
+//   let arrayToReturn = [];
+
+//   for (const singleWord of words) {
+
+//     let objectOfLettersCompare = {};
+
+//     for (const letter of singleWord) {
+//       if (!objectOfLettersCompare[letter]) {
+//         objectOfLettersCompare[letter] = 1;
+//       } else if (objectOfLettersCompare[letter]) {
+//         objectOfLettersCompare[letter] += 1;
+//       }
+//     }
+
+//     let add = true;
+
+//     for (const key of Object.keys(objectOfLettersCompare)) {
+//       if (objectOfLettersCompare[key] !== objectOfLetters[key]) {
+//         add = false;
+//       }
+//     }
+
+//     if (add === true) {
+//       arrayToReturn.push(singleWord);
+//     }
+//   }
+
+//   return arrayToReturn;
+// }
 
 console.log(anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer'])); //['carer', 'racer']

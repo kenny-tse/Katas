@@ -9,15 +9,28 @@
 // friend ["Ryan", "Kieran", "Mark"] `shouldBe` ["Ryan", "Mark"]
 // Note: keep the original order of the names in the output.
 
-function friend(friends) {
 
-  let arrayOfFriends = [];
+const friend = (friends) => {
 
-  for (const name of friends) {
-    if (name.length === 4) {
-      arrayOfFriends.push(name);
+  return friendArray = friends.filter((element) => {
+    if (element.length === 4) {
+      return element;
     }
-  }
-
-  return arrayOfFriends;
+  })
 }
+
+console.log(friend(["Ryan", "Kieran", "Mark"]))
+
+
+// function friend(friends) {
+
+//   let arrayOfFriends = [];
+
+//   for (const name of friends) {
+//     if (name.length === 4) {
+//       arrayOfFriends.push(name);
+//     }
+//   }
+
+//   return arrayOfFriends;
+// }
