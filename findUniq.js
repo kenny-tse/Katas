@@ -27,8 +27,4 @@ const findUniq = function (arr) {
   return arrayUnique[1];
 }
 
-// console.log(findUniq([1, 1, 1, 5, 1, 1])); // 5
-// console.log(findUniq([1, 1, 2, 1, 1])); // 2
-// console.log(findUniq([3, 10, 3, 3, 3])); // 10
-
 module.exports = findUniq;
