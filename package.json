@@ -1,0 +1,29 @@
+{
+  "name": "katas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "DNAStrand.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "chai": "^4.3.6"
+  },
+  "devDependencies": {
+    "mocha": "^9.2.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenny-tse/Katas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kenny-tse/Katas/issues"
+  },
+  "homepage": "https://github.com/kenny-tse/Katas#readme"
+}
