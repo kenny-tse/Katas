@@ -43,6 +43,8 @@ const isPalindrome = (x) => {
 
 }
 
+module.exports = isPalindrome;
+
 console.log(isPalindrome("neveroddoreven"));
 
 
