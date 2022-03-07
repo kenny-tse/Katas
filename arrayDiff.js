@@ -4,7 +4,6 @@
 // If a value is present in b, all of its occurrences must be removed from the other:
 // arrayDiff([1,2,2,2,3],[2]) == [1,3]
 
-
 function arrayDiff(a, b) {
   return arrayToReturn = a.filter((element) => {
     if (!b.includes(element)) {
@@ -13,4 +12,4 @@ function arrayDiff(a, b) {
   })
 }
 
-console.log(arrayDiff([1, 2], [1]))
+module.exports = arrayDiff;

@@ -45,9 +45,6 @@ const isPalindrome = (x) => {
 
 module.exports = isPalindrome;
 
-console.log(isPalindrome("neveroddoreven"));
-
-
 // var isPalindrome = function (x) {
 
 //     let stringToCount = x.toString();
