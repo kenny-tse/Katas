@@ -26,23 +26,15 @@
 // 0 <= nums[i] <= 50
 // 0 <= val <= 100
 
-/**
- * @param {number[]} nums
- * @param {number} val
- * @return {number}
- */
-var removeElement = function (nums, val) {
-  let counter = 0;
-  for (const numberIndex in nums) {
-    if (nums[numberIndex] === val) {
-      nums[numberIndex] = "_";
-      counter++;
+const removeElement = (nums, val) => {
+
+  for (let x = 0; x < nums.length; x++) {
+    if (nums[x] === val) {
+      nums.splice(x, 1);
+      x--;
     }
   }
-
-  // return nums.sort().splice(0, counter).length; // return length
-  return nums.sort().splice(0, counter); // return arrary
-};
-
+  return nums.length;
+}
 
 console.log(removeElement([3, 2, 2, 3], 3));
