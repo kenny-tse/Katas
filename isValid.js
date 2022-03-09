@@ -24,7 +24,12 @@ const isValid = (paraString) => {
     }
   }
 
-  return true;
+  if (stackPara.length === 0) {
+    return true;
+  }
+
+  return false;
+
 }
 
-console.log(isValid("[()()]"))
+console.log(isValid("(("))
